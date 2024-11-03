@@ -47,7 +47,8 @@ export type ContentStyle = Pick<
   | "paddingHorizontal"
 >;
 
-export interface FlashListProps<TItem> extends ScrollViewProps {
+export interface FlashListProps<TItem>
+  extends Omit<ScrollViewProps, "maintainVisibleContentPosition"> {
   /**
    * Takes an item from `data` and renders it into the list. Typical usage:
    * ```ts
@@ -332,4 +333,13 @@ export interface FlashListProps<TItem> extends ScrollViewProps {
    * `false` again.
    */
   disableAutoLayout?: boolean;
+
+  /**
+   * If enabled, FlashList will try and maintain the position of the list when items are added from the top.
+   * Additionally, it will fix scroll position when changing scroll orientation on your device.
+   * This prop requires you define a `keyExtractor` function. The `keyExtractor` is used to compute the list
+   * top anchor. Without it, the list will fail to render. If in debug mode, you may see flashes if new data
+   * comes in quickly. If this happens, please confirm you see this in release mode before reporting an issue.
+   */
+  maintainVisibleContentPosition?: boolean;
 }

@@ -31,6 +31,7 @@ import {
   RenderTargetOptions,
 } from "./FlashListProps";
 import {
+  getBidirectionalScrollView,
   getCellContainerPlatformStyles,
   getFooterContainer,
   getItemAnimator,
@@ -46,6 +47,7 @@ import {
 interface StickyProps extends StickyContainerProps {
   children: any;
 }
+
 const StickyHeaderContainer =
   StickyContainer as React.ComponentClass<StickyProps>;
 
@@ -176,12 +178,6 @@ class FlashList<T> extends React.PureComponent<
       );
     }
 
-    // RLV retries to reposition the first visible item on layout provider change.
-    // It's not required in our case so we're disabling it
-    newState.layoutProvider.shouldRefreshWithAnchoring = Boolean(
-      !prevState.layoutProvider?.hasExpired
-    );
-
     if (nextProps.data !== prevState.data) {
       newState.data = nextProps.data;
       newState.dataProvider = prevState.dataProvider.cloneWithRows(
@@ -195,6 +191,11 @@ class FlashList<T> extends React.PureComponent<
       newState.extraData = { value: nextProps.extraData };
     }
     newState.renderItem = nextProps.renderItem;
+
+    // RLV retries to reposition the first visible item on layout provider change.
+    // It's not required in our case so we're disabling it
+    newState.layoutProvider.shouldRefreshWithAnchoring = false;
+
     return newState;
   }
 
@@ -389,9 +390,10 @@ class FlashList<T> extends React.PureComponent<
           windowCorrectionConfig={this.getUpdatedWindowCorrectionConfig()}
           itemAnimator={this.itemAnimator}
           suppressBoundedSizeException
-          externalScrollView={
-            renderScrollComponent as RecyclerListViewProps["externalScrollView"]
-          }
+          externalScrollView={getBidirectionalScrollView(
+            Boolean(this.props.maintainVisibleContentPosition),
+            renderScrollComponent
+          )}
         />
       </StickyHeaderContainer>
     );
@@ -459,6 +461,7 @@ class FlashList<T> extends React.PureComponent<
 
   private container = (props: object, children: React.ReactNode[]) => {
     this.clearPostLoadTimeout();
+
     return (
       <>
         <PureComponentWrapper
@@ -476,6 +479,9 @@ class FlashList<T> extends React.PureComponent<
           onBlankAreaEvent={this.props.onBlankArea}
           onLayout={this.updateDistanceFromWindow}
           disableAutoLayout={this.props.disableAutoLayout}
+          maintainVisibleContentPosition={
+            this.props.maintainVisibleContentPosition
+          }
         >
           {children}
         </AutoLayoutView>
@@ -511,6 +517,10 @@ class FlashList<T> extends React.PureComponent<
           ...getCellContainerPlatformStyles(this.props.inverted!!, parentProps),
         }}
         index={parentProps.index}
+        stableId={
+          /* Empty string is used so the list can still render without an extractor */
+          this.props.keyExtractor?.(parentProps.data, parentProps.index) ?? ""
+        }
       >
         <PureComponentWrapper
           extendedState={parentProps.extendedState}

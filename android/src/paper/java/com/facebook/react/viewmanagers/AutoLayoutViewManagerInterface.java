@@ -18,4 +18,5 @@ public interface AutoLayoutViewManagerInterface<T extends View> {
   void setRenderAheadOffset(T view, double value);
   void setEnableInstrumentation(T view, boolean value);
   void setDisableAutoLayout(T view, boolean value);
+  void setMaintainVisibleContentPosition(T view, boolean value);
 }

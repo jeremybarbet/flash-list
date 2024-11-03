@@ -47,6 +47,7 @@ using namespace facebook::react;
     const auto &newProps = *std::static_pointer_cast<const CellContainerProps>(props);
 
     self.index = newProps.index;
+    self.stableId = newProps.stableId;
 
     [super updateProps:props oldProps:oldProps];
 }

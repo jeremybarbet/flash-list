@@ -39,6 +39,9 @@ public class AutoLayoutViewManagerDelegate<T extends View, U extends BaseViewMan
       case "disableAutoLayout":
         mViewManager.setDisableAutoLayout(view, value == null ? false : (boolean) value);
         break;
+      case "maintainVisibleContentPosition":
+        mViewManager.setMaintainVisibleContentPosition(view, value == null ? false : (boolean) value);
+        break;
       default:
         super.setProperty(view, propName, value);
     }

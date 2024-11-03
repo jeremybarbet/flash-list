@@ -77,6 +77,7 @@ using namespace facebook::react;
     [_autoLayoutView setRenderAheadOffset:newProps.renderAheadOffset];
     [_autoLayoutView setEnableInstrumentation:newProps.enableInstrumentation];
     [_autoLayoutView setDisableAutoLayout:newProps.disableAutoLayout];
+    [_autoLayoutView setMaintainVisibleContentPosition:newProps.maintainVisibleContentPosition];
 
     [super updateProps:props oldProps:oldProps];
 }
