@@ -4,7 +4,7 @@ const root = path.resolve(__dirname, "../../");
 
 module.exports = {
   dependencies: {
-    "@shopify/flash-list": {
+    "@jeremybarbet/flash-list": {
       root,
       platforms: {
         ios: null,

@@ -2113,7 +2113,7 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@shopify/flash-list@link:../..":
+"@jeremybarbet/flash-list@link:../..":
   version "1.7.1"
   dependencies:
     recyclerlistview "4.2.1"

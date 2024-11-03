@@ -25,7 +25,7 @@ For the animation to work properly, you additionally need to add [`keyExtractor`
 ```tsx
 import React, { useRef, useState } from "react";
 import { View, Text, Pressable, LayoutAnimation } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 
 const List = () => {
   const [data, setData] = useState([1, 2, 3, 4, 5]);

@@ -1,1 +1,1 @@
-npx expo install @shopify/flash-list
+npx expo install @jeremybarbet/flash-list

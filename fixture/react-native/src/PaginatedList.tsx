@@ -4,7 +4,7 @@
  */
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 
 export interface PaginatedListState {
   // This property is used but eslint fails to find its usage.

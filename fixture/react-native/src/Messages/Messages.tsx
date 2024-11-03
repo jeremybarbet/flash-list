@@ -1,5 +1,5 @@
 import { KeyboardAvoidingView, Platform, StyleSheet } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 import React, { useState } from "react";
 
 import MessageType from "./models/MessageType";

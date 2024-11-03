@@ -11,7 +11,7 @@ Since `FlashList` does not immediately render but waits for the size of the unde
 Add the following line to your `jest-setup.js` file:
 
 ```js
-require("@shopify/flash-list/jestSetup");
+require("@jeremybarbet/flash-list/jestSetup");
 ```
 
 To be sure, check if your jest.config.js file contains:

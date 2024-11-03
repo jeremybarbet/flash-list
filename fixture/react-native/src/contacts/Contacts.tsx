@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 
 import { DebugContext } from "../Debug";
 

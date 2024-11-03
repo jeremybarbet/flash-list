@@ -9,12 +9,12 @@ Masonry Layout allows you to create a grid of items with different heights. It i
 <img src="https://user-images.githubusercontent.com/7811728/188055598-41f5c961-0dd0-4bb9-bc6e-22d78596a036.png" height="500"/>
 </div>
 
-To get started, import `MasonryFlashList` from `@shopify/flash-list` and use it just like you would use `FlashList`:
+To get started, import `MasonryFlashList` from `@jeremybarbet/flash-list` and use it just like you would use `FlashList`:
 
 ```tsx
 import React from "react";
 import { View, Text, StatusBar } from "react-native";
-import { MasonryFlashList } from "@shopify/flash-list";
+import { MasonryFlashList } from "@jeremybarbet/flash-list";
 import { DATA } from "./data";
 
 const MyMasonryList = () => {

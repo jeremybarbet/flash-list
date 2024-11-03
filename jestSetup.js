@@ -1,5 +1,5 @@
-jest.mock("@shopify/flash-list", () => {
-  const ActualFlashList = jest.requireActual("@shopify/flash-list").FlashList;
+jest.mock("@jeremybarbet/flash-list", () => {
+  const ActualFlashList = jest.requireActual("@jeremybarbet/flash-list").FlashList;
   class MockFlashList extends ActualFlashList {
     componentDidMount() {
       super.componentDidMount();
@@ -9,7 +9,7 @@ jest.mock("@shopify/flash-list", () => {
     }
   }
   return {
-    ...jest.requireActual("@shopify/flash-list"),
+    ...jest.requireActual("@jeremybarbet/flash-list"),
     FlashList: MockFlashList,
     AnimatedFlashList: MockFlashList,
   };

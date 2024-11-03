@@ -11,7 +11,7 @@ title: Manual linking
 - Add this line to your `Podfile` just below the last pod:
 
 ```ruby
-pod 'RNFlashList', :path => '../node_modules/@shopify/flash-list'
+pod 'RNFlashList', :path => '../node_modules/@jeremybarbet/flash-list'
 ```
 
 - Run `pod install`
@@ -22,7 +22,7 @@ pod 'RNFlashList', :path => '../node_modules/@shopify/flash-list'
 
 ```
 include ':@shopify-flash-list'
-project(':@shopify-flash-list').projectDir = new File(rootProject.projectDir, '../node_modules/@shopify/flash-list/android')
+project(':@shopify-flash-list').projectDir = new File(rootProject.projectDir, '../node_modules/@jeremybarbet/flash-list/android')
 ```
 
 - In `android/app/build.gradle`, add to dependencies:
