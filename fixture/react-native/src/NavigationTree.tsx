@@ -16,6 +16,7 @@ import TwitterBenchmark from "./twitter/TwitterBenchmark";
 import TwitterCustomCellContainer from "./twitter/CustomCellRendererComponent";
 import { Masonry } from "./Masonry";
 import { SectionList } from "./SectionList";
+import { Instagram } from "./instagram";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -28,6 +29,7 @@ const NavigationTree = () => {
           <Stack.Screen name="List" component={List} />
           <Stack.Screen name="SectionList" component={SectionList} />
           <Stack.Screen name="PaginatedList" component={PaginatedList} />
+          <Stack.Screen name="Instagram" component={Instagram} />
           <Stack.Screen name="Twitter" component={Twitter} />
           <Stack.Screen name="Reminders" component={Reminders} />
           <Stack.Screen
