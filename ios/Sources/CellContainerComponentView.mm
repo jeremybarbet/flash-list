@@ -25,36 +25,36 @@ using namespace facebook::react;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if (self = [super initWithFrame:frame]) {
-        static const auto defaultProps = std::make_shared<const CellContainerProps>();
-        _props = defaultProps;
+  if (self = [super initWithFrame:frame]) {
+    static const auto defaultProps = std::make_shared<const CellContainerProps>();
+    _props = defaultProps;
 
-        self.userInteractionEnabled = true;
-    }
+    self.userInteractionEnabled = true;
+  }
 
-    return self;
+  return self;
 }
 
 #pragma mark - RCTComponentViewProtocol
 
 + (ComponentDescriptorProvider)componentDescriptorProvider
 {
-    return concreteComponentDescriptorProvider<CellContainerComponentDescriptor>();
+  return concreteComponentDescriptorProvider<CellContainerComponentDescriptor>();
 }
 
 - (void)updateProps:(const Props::Shared &)props oldProps:(const Props::Shared &)oldProps
 {
-    const auto &newProps = *std::static_pointer_cast<const CellContainerProps>(props);
+  const auto &newProps = *std::static_pointer_cast<const CellContainerProps>(props);
 
-    self.index = newProps.index;
+  self.index = newProps.index;
 
-    [super updateProps:props oldProps:oldProps];
+  [super updateProps:props oldProps:oldProps];
 }
 @end
 
 Class<RCTComponentViewProtocol> CellContainerCls(void)
 {
-    return CellContainerComponentView.class;
+  return CellContainerComponentView.class;
 }
 #else
 @implementation CellContainerComponentView

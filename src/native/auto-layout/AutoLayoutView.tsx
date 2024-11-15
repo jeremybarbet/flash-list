@@ -29,6 +29,7 @@ export interface AutoLayoutViewProps {
   onBlankAreaEvent?: BlankAreaEventHandler;
   onLayout?: (event: LayoutChangeEvent) => void;
   disableAutoLayout?: boolean;
+  experimentalMaintainVisibleContentPosition?: boolean;
 }
 
 class AutoLayoutView extends React.Component<AutoLayoutViewProps> {
@@ -36,12 +37,15 @@ class AutoLayoutView extends React.Component<AutoLayoutViewProps> {
     nativeEvent,
   }: OnBlankAreaEvent): void => {
     const blankArea = Math.max(nativeEvent.offsetStart, nativeEvent.offsetEnd);
+
     const blankEventValue = {
       blankArea,
       offsetStart: nativeEvent.offsetStart,
       offsetEnd: nativeEvent.offsetEnd,
     };
+
     this.broadcastBlankEvent(blankEventValue);
+
     if (this.props.onBlankAreaEvent) {
       this.props.onBlankAreaEvent(blankEventValue);
     }
@@ -63,6 +67,9 @@ class AutoLayoutView extends React.Component<AutoLayoutViewProps> {
           listeners.length !== 0 || Boolean(this.props.onBlankAreaEvent)
         }
         disableAutoLayout={this.props.disableAutoLayout}
+        experimentalMaintainVisibleContentPosition={
+          this.props.experimentalMaintainVisibleContentPosition
+        }
       >
         {this.props.children}
       </AutoLayoutViewNativeComponent>

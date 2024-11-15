@@ -12,6 +12,7 @@
 #endif // RCT_NEW_ARCH_ENABLED
 
 @property int64_t index;
+@property NSString * stableId;
 
 @end
 

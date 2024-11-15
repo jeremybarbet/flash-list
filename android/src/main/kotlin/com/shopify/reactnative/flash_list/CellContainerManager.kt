@@ -9,26 +9,34 @@ import com.facebook.react.viewmanagers.CellContainerManagerDelegate
 import com.facebook.react.viewmanagers.CellContainerManagerInterface
 
 @ReactModule(name = AutoLayoutViewManager.REACT_CLASS)
-class CellContainerManager: ViewGroupManager<CellContainerImpl>(), CellContainerManagerInterface<CellContainerImpl> {
-    private val mDelegate: CellContainerManagerDelegate<CellContainerImpl, CellContainerManager>
-        = CellContainerManagerDelegate(this)
+class CellContainerManager : ViewGroupManager<CellContainerImpl>(),
+  CellContainerManagerInterface<CellContainerImpl> {
+  private val mDelegate: CellContainerManagerDelegate<CellContainerImpl, CellContainerManager> =
+    CellContainerManagerDelegate(this)
 
-    companion object {
-        const val REACT_CLASS = "CellContainer"
+  companion object {
+    const val REACT_CLASS = "CellContainer"
+  }
+
+  override fun getName(): String {
+    return REACT_CLASS
+  }
+
+  override fun getDelegate(): ViewManagerDelegate<CellContainerImpl> = mDelegate
+
+  override fun createViewInstance(context: ThemedReactContext): CellContainerImpl {
+    return CellContainerImpl(context)
+  }
+
+  @ReactProp(name = "index")
+  override fun setIndex(view: CellContainerImpl, index: Int) {
+    view.index = index
+  }
+
+  @ReactProp(name = "stableId")
+  override fun setStableId(view: CellContainerImpl, stableId: String?) {
+    if (stableId != null) {
+      view.stableId = stableId
     }
-
-    override fun getName(): String {
-        return REACT_CLASS
-    }
-
-    override fun getDelegate(): ViewManagerDelegate<CellContainerImpl> = mDelegate
-
-    override fun createViewInstance(context: ThemedReactContext): CellContainerImpl {
-        return CellContainerImpl(context)
-    }
-
-    @ReactProp(name = "index")
-    override fun setIndex(view: CellContainerImpl, index: Int) {
-        view.index = index
-    }
+  }
 }

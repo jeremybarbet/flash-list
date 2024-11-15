@@ -23,7 +23,7 @@ using namespace facebook::react;
 
 @implementation AutoLayoutViewComponentView
 {
-    AutoLayoutView *_autoLayoutView;
+  AutoLayoutView *_autoLayoutView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -39,9 +39,9 @@ using namespace facebook::react;
       AutoLayoutViewComponentView *strongSelf = weakSelf;
       if (strongSelf != nullptr && strongSelf->_eventEmitter != nullptr) {
         std::dynamic_pointer_cast<const facebook::react::AutoLayoutViewEventEmitter>(strongSelf->_eventEmitter)
-          ->onBlankAreaEvent(facebook::react::AutoLayoutViewEventEmitter::OnBlankAreaEvent{
-            .offsetStart = (int) floor(start),
-            .offsetEnd = (int) floor(end),
+        ->onBlankAreaEvent(facebook::react::AutoLayoutViewEventEmitter::OnBlankAreaEvent{
+          .offsetStart = (int) floor(start),
+          .offsetEnd = (int) floor(end),
         });
       }
     };
@@ -69,16 +69,16 @@ using namespace facebook::react;
 
 - (void)updateProps:(const Props::Shared &)props oldProps:(const Props::Shared &)oldProps
 {
-    const auto &newProps = *std::static_pointer_cast<const AutoLayoutViewProps>(props);
+  const auto &newProps = *std::static_pointer_cast<const AutoLayoutViewProps>(props);
 
-    [_autoLayoutView setHorizontal:newProps.horizontal];
-    [_autoLayoutView setScrollOffset:newProps.scrollOffset];
-    [_autoLayoutView setWindowSize:newProps.windowSize];
-    [_autoLayoutView setRenderAheadOffset:newProps.renderAheadOffset];
-    [_autoLayoutView setEnableInstrumentation:newProps.enableInstrumentation];
-    [_autoLayoutView setDisableAutoLayout:newProps.disableAutoLayout];
+  [_autoLayoutView setHorizontal:newProps.horizontal];
+  [_autoLayoutView setScrollOffset:newProps.scrollOffset];
+  [_autoLayoutView setWindowSize:newProps.windowSize];
+  [_autoLayoutView setRenderAheadOffset:newProps.renderAheadOffset];
+  [_autoLayoutView setEnableInstrumentation:newProps.enableInstrumentation];
+  [_autoLayoutView setDisableAutoLayout:newProps.disableAutoLayout];
 
-    [super updateProps:props oldProps:oldProps];
+  [super updateProps:props oldProps:oldProps];
 }
 @end
 

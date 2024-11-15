@@ -18,6 +18,7 @@ interface NativeProps extends ViewProps {
   renderAheadOffset?: Double;
   enableInstrumentation?: boolean;
   disableAutoLayout?: boolean;
+  experimentalMaintainVisibleContentPosition?: boolean;
   onBlankAreaEvent?: DirectEventHandler<BlankAreaEvent>;
 }
 

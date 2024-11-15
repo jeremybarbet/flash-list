@@ -7,23 +7,23 @@ import com.facebook.react.uimanager.events.Event
 import com.facebook.react.uimanager.events.RCTEventEmitter
 
 class BlankAreaEvent(
-    surfaceId: Int,
-    viewTag: Int,
-    private val offsetStart: Double,
-    private val offsetEnd: Double
-): Event<BlankAreaEvent>(surfaceId, viewTag) {
-    override fun getEventName() = EVENT_NAME
+  surfaceId: Int,
+  viewTag: Int,
+  private val offsetStart: Double,
+  private val offsetEnd: Double
+) : Event<BlankAreaEvent>(surfaceId, viewTag) {
+  override fun getEventName() = EVENT_NAME
 
-    override fun getEventData(): WritableMap = Arguments.createMap().apply {
-        putDouble("offsetStart", offsetStart)
-        putDouble("offsetEnd", offsetEnd)
-    }
+  override fun getEventData(): WritableMap = Arguments.createMap().apply {
+    putDouble("offsetStart", offsetStart)
+    putDouble("offsetEnd", offsetEnd)
+  }
 
-    override fun dispatch(rctEventEmitter: RCTEventEmitter) {
-        rctEventEmitter.receiveEvent(viewTag, eventName, eventData)
-    }
+  override fun dispatch(rctEventEmitter: RCTEventEmitter) {
+    rctEventEmitter.receiveEvent(viewTag, eventName, eventData)
+  }
 
-    companion object {
-        const val EVENT_NAME: String = "onBlankAreaEvent"
-    }
+  companion object {
+    const val EVENT_NAME: String = "onBlankAreaEvent"
+  }
 }

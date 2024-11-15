@@ -4,6 +4,7 @@ import type { ViewProps } from "react-native";
 
 interface NativeProps extends ViewProps {
   index?: Int32;
+  stableId?: string;
 }
 
 export default codegenNativeComponent<NativeProps>("CellContainer");
