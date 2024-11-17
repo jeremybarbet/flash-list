@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyleSheet, Button, View } from "react-native";
 import { BlankAreaEventHandler, FlashList } from "@jeremybarbet/flash-list";
 import { useHeaderHeight } from "@react-navigation/elements";
+
+import { DebugContext } from "../Debug";
 
 import { reels as reelsData } from "./data/reels";
 import InstagramCell, { height } from "./InstagramCell";
@@ -10,21 +12,19 @@ import Reel from "./models/Reel";
 export interface InstagramProps {
   instance?: React.RefObject<FlashList<Reel>>;
   blankAreaTracker?: BlankAreaEventHandler;
-  CellRendererComponent?: React.ComponentType<any>;
 }
 
-const Instagram = ({
-  instance,
-  blankAreaTracker,
-  CellRendererComponent,
-}: InstagramProps) => {
+const Instagram = ({ instance, blankAreaTracker }: InstagramProps) => {
   const headerHeight = useHeaderHeight();
-  const [reels, setReels] = useState(reelsData);
+  const debugContext = useContext(DebugContext);
+  const [reels, setReels] = useState(
+    debugContext.emptyListEnabled ? [] : reelsData
+  );
 
   const concatReel = () => {
     setReels((prev) => {
-      const reel = prev[Math.floor(Math.random() * prev.length)];
-      const id = prev[0].id - 1;
+      const reel = reelsData[Math.floor(Math.random() * prev.length)];
+      const id = prev.length ? prev[0].id - 1 : 0;
 
       return [
         {
@@ -52,11 +52,11 @@ const Instagram = ({
         testID="FlashList"
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => <InstagramCell reel={item} />}
-        CellRendererComponent={CellRendererComponent}
         snapToAlignment="start"
         decelerationRate="fast"
         snapToInterval={height - headerHeight}
         estimatedItemSize={height - headerHeight}
+        drawDistance={height - headerHeight + 1}
         data={reels}
         experimentalMaintainVisibleContentPosition
       />
