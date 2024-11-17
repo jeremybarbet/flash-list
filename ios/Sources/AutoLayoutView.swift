@@ -66,10 +66,10 @@ import UIKit
   private var anchorOffset: CGFloat = 0
   
   override public func layoutSubviews() {
-    fixLayout()
     super.layoutSubviews()
-    self.isInitialRender = false
+    fixLayout()
     
+    self.isInitialRender = false
     guard enableInstrumentation, let scrollView = getScrollView() else { return }
     
     let scrollContainerSize = horizontal ? scrollView.frame.width : scrollView.frame.height
@@ -131,6 +131,7 @@ import UIKit
       layer.animationKeys()?.isEmpty ?? true,
       !disableAutoLayout
     else { return }
+    
     let cellContainers = subviews
       .compactMap { subview -> CellContainerComponentView? in
         if let cellContainer = subview as? CellContainerComponentView {
@@ -141,6 +142,7 @@ import UIKit
         }
       }
       .sorted(by: { $0.index < $1.index })
+    
     clearGaps(for: cellContainers)
     fixFooter()
   }
@@ -196,21 +198,21 @@ import UIKit
     lastMaxBoundOverall = 0
     
     cellContainers.indices.dropLast().forEach { index in
-      let cellContainer = cellContainers[index]
-      let cellTop = cellContainer.frame.minY
-      let cellBottom = cellContainer.frame.maxY
-      let cellLeft = cellContainer.frame.minX
-      let cellRight = cellContainer.frame.maxX
+      let currentCell = cellContainers[index]
+      let cellTop = currentCell.frame.minY
+      let cellBottom = currentCell.frame.maxY
+      let cellLeft = currentCell.frame.minX
+      let cellRight = currentCell.frame.maxX
       
       let nextCell = cellContainers[index + 1]
       let nextCellTop = nextCell.frame.minY
       let nextCellLeft = nextCell.frame.minX
       
       // Only apply correction if the next cell is consecutive.
-      let isNextCellConsecutive = nextCell.index == cellContainer.index + 1
+      let isNextCellConsecutive = nextCell.index == currentCell.index + 1
       
       let isCellVisible = isWithinBounds(
-        cellContainer,
+        currentCell,
         scrollOffset: correctedScrollOffset,
         renderAheadOffset: renderAheadOffset,
         windowSize: windowSize,
@@ -228,7 +230,7 @@ import UIKit
       guard
         isCellVisible || isNextCellVisible
       else {
-        updateLastMaxBoundOverall(currentCell: cellContainer, nextCell: nextCell)
+        updateLastMaxBoundOverall(currentCell: currentCell, nextCell: nextCell)
         return
       }
       
@@ -286,7 +288,7 @@ import UIKit
         anchorSet = true
       }
       
-      updateLastMaxBoundOverall(currentCell: cellContainer, nextCell: nextCell)
+      updateLastMaxBoundOverall(currentCell: currentCell, nextCell: nextCell)
     }
     
     if experimentalMaintainVisibleContentPosition {
