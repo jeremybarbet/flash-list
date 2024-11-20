@@ -10,7 +10,7 @@ import {
   LayoutAnimation,
   StyleSheet,
 } from "react-native";
-import { FlashList, ListRenderItemInfo } from "@shopify/flash-list";
+import { FlashList, ListRenderItemInfo } from "@jeremybarbet/flash-list";
 
 const generateItemsArray = (size: number) => {
   const arr = new Array(size);

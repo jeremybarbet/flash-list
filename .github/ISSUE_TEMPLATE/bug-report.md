@@ -1,6 +1,6 @@
 ---
 name: "\U0001F41B Bug report"
-about: Report an issue with @shopify/flash-list to help us improve
+about: Report an issue with @jeremybarbet/flash-list to help us improve
 labels: "bug"
 ---
 
@@ -34,6 +34,6 @@ Before you proceed:
 
 ## Environment
 
-<!-- What is the exact version of @shopify/flash-list that you are using? -->
+<!-- What is the exact version of @jeremybarbet/flash-list that you are using? -->
 
 x.y.z

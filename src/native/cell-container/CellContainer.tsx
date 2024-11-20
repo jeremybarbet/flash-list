@@ -3,6 +3,7 @@ import { View, ViewProps } from "react-native";
 
 export interface CellContainerProps extends ViewProps {
   index: number;
+  stableId: string;
 }
 
 const CellContainer = React.forwardRef(
@@ -10,5 +11,7 @@ const CellContainer = React.forwardRef(
     return <View ref={ref} {...props} />;
   }
 );
+
 CellContainer.displayName = "CellContainer";
+
 export default CellContainer;

@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
   ViewabilityConfig,
 } from "react-native";
-import { BlankAreaEventHandler, FlashList } from "@shopify/flash-list";
+import { BlankAreaEventHandler, FlashList } from "@jeremybarbet/flash-list";
 
 import { DebugContext } from "../Debug";
 

@@ -18,7 +18,7 @@ Swap from FlatList in seconds. Get instant performance.
 
 ## Installation
 
-Add the package to your project via `yarn add @shopify/flash-list` and run `pod install` in the `ios` directory.
+Add the package to your project via `yarn add @jeremybarbet/flash-list` and run `pod install` in the `ios` directory.
 
 ## Usage
 
@@ -29,7 +29,7 @@ But if you are familiar with [FlatList](https://reactnative.dev/docs/flatlist), 
 ```jsx
 import React from "react";
 import { View, Text } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 
 const DATA = [
   {

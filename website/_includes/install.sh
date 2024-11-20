@@ -1,2 +1,2 @@
-yarn add @shopify/flash-list
+yarn add @jeremybarbet/flash-list
 cd ios && pod install

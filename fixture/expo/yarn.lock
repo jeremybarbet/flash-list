@@ -2352,7 +2352,7 @@
     component-type "^1.2.1"
     join-component "^1.1.0"
 
-"@shopify/flash-list@link:../..":
+"@jeremybarbet/flash-list@link:../..":
   version "1.7.1"
   dependencies:
     recyclerlistview "4.2.1"

@@ -10,7 +10,7 @@ import {
   ViewProps,
   Pressable,
 } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 import Animated, { FadeOut, LinearTransition } from "react-native-reanimated";
 
 interface Reminder {

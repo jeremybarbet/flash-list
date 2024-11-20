@@ -10,7 +10,7 @@ If you are familiar with [FlatList](https://reactnative.dev/docs/flatlist), you 
 ```tsx
 import React from "react";
 import { View, Text, StatusBar } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 
 const DATA = [
   {

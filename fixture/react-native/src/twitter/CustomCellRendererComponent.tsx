@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { CellContainer } from "@shopify/flash-list";
+import { CellContainer } from "@jeremybarbet/flash-list";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,

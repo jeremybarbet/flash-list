@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, Switch } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 import { TextInput } from "react-native-gesture-handler";
 
 import { DebugContext, DebugContextInterface } from "./DebugContext";

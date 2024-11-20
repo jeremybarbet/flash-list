@@ -125,7 +125,7 @@ And that's it! Below you can find the whole example for `FlashList`:
 ```tsx
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 
 interface Contact {
   firstName: string;

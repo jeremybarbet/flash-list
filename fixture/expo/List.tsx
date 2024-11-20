@@ -3,7 +3,7 @@ Sample list for web
  */
 import React, { useEffect, useRef, useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
-import { FlashList, ListRenderItemInfo } from "@shopify/flash-list";
+import { FlashList, ListRenderItemInfo } from "@jeremybarbet/flash-list";
 
 const ListItem = ({ index }: { index: string }) => {
   const [height, setHeight] = useState(100);

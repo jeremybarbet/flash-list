@@ -10,7 +10,6 @@
 
 @end
 
-
 #endif /* RCT_NEW_ARCH_ENABLED */
 
 #endif /* AutoLayoutViewComponentView_h */

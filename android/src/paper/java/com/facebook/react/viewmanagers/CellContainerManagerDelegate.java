@@ -24,6 +24,9 @@ public class CellContainerManagerDelegate<T extends View, U extends BaseViewMana
       case "index":
         mViewManager.setIndex(view, value == null ? 0 : ((Double) value).intValue());
         break;
+      case "stableId":
+        mViewManager.setStableId(view, value == null ? null : (String) value);
+        break;
       default:
         super.setProperty(view, propName, value);
     }

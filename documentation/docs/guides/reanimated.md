@@ -20,7 +20,7 @@ You can use hooks such as [`useSharedValue`](https://docs.swmansion.com/react-na
 ```tsx
 import React, { useEffect } from "react";
 import Animated, { useSharedValue } from "react-native-reanimated";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList } from "@jeremybarbet/flash-list";
 
 const MyList = () => {
   const Item = ({ item }: { item: { id: string } }) => {

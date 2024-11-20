@@ -24,6 +24,7 @@ export const ExamplesScreen = () => {
     { title: "SectionList", destination: "SectionList" },
     { title: "PaginatedList", destination: "PaginatedList" },
     { title: "Reminders", destination: "Reminders" },
+    { title: "Instagram", destination: "Instagram" },
     { title: "Twitter Timeline", destination: "Twitter" },
     {
       title: "Twitter FlatList Timeline",

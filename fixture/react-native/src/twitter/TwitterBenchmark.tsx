@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { FlashList, useBenchmark } from "@shopify/flash-list";
+import { FlashList, useBenchmark } from "@jeremybarbet/flash-list";
 
 import Twitter from "./Twitter";
 import Tweet from "./models/Tweet";
